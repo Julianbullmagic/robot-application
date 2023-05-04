@@ -31,7 +31,8 @@ io.on("connection", (socket) => {
     }
 
     socket.on("forward", (data) => {
-        socket.emit("foward");
+      console.log("forward")
+        socket.emit("foward","forward");
     });
     socket.on("backward", (data) => {
         socket.emit("backward");

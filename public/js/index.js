@@ -9,6 +9,7 @@ const peerConnection = new RTCPeerConnection();
 
 let forwardbutton=document.getElementById("forward").onmousedown=function() {
   socket.emit("forward", "forward");
+  console.log("forward")
 };
 let backwardbutton=document.getElementById("backward").onmousedown=function() {
   socket.emit("backward", "backward");
