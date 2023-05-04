@@ -32,7 +32,7 @@ io.on("connection", (socket) => {
 
     socket.on("forward", (data) => {
       console.log("forward")
-        socket.emit("foward","forward");
+        socket.emit("forward","forward");
     });
     socket.on("backward", (data) => {
         socket.emit("backward");
