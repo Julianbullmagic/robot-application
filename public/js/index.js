@@ -49,7 +49,7 @@ document.getElementById("straferight").onmouseup=function() {
   socket.emit("stop strafe right", "stop strafe right");
   console.log("stop strafe right")
 };
-document.getElementById("rotateleft").onomouseup=function() {
+document.getElementById("rotateleft").onmouseup=function() {
   socket.emit("stop rotate left", "stop rotate left");
   console.log("stop rotate left")
 };

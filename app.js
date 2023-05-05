@@ -29,7 +29,6 @@ io.on("connection", (socket) => {
         });
         socket.broadcast.emit("update-user-list", { users: [socket.id] });
     }
-    io.emit("forward");
 
     socket.on("forward", () => {
       console.log("forward")
