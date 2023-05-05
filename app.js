@@ -29,11 +29,11 @@ io.on("connection", (socket) => {
         });
         socket.broadcast.emit("update-user-list", { users: [socket.id] });
     }
-    socket.emit("forward","forward");
+    socket.emit("forward");
 
     socket.on("forward", () => {
       console.log("forward")
-        socket.emit("forward","forward");
+        socket.emit("forward");
     });
     socket.on("backward", (data) => {
       console.log("backward")
@@ -74,11 +74,11 @@ io.on("connection", (socket) => {
     });
     socket.on("stop rotate left", (data) => {
         console.log("stop rotate left")
-        socket.emit("rotate left");
+        socket.emit("stop rotate left");
     });
     socket.on("stop rotate right", (data) => {
         console.log("stop rotate right")
-        socket.emit("rotate right");
+        socket.emit("stop rotate right");
     });
 
     socket.on("call-user", (data) => {
