@@ -95,8 +95,11 @@ io.on("connection", (socket) => {
     });
 
     socket.on("call-robot", (data) => {
-      console.log(data,"receiving call from robot")
-        socket.emit("call-robot", {
+      console.log({
+          offer: data.offer,
+          socket: socket.id,
+      },"receiving call from robot")
+        io.emit("call-robot", {
             offer: data.offer,
             socket: socket.id,
         });
