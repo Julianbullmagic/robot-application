@@ -105,6 +105,13 @@ io.on("connection", (socket) => {
         });
     });
 
+    socket.on("make-answer-with-robot", (data) => {
+        console.log("making answer with robot",data,data.answer)
+        socket.emit("answer-made", {
+            answer: data.answer,
+        });
+    });
+
     socket.on("make-answer", (data) => {
         socket.to(data.to).emit("answer-made", {
             socket: socket.id,
