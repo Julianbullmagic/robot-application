@@ -34,6 +34,7 @@ io.on("connection", (socket) => {
     });
     socket.on("forward", () => {
       console.log("forward")
+      console.log(robot)
         io.emit("forward");
     });
     socket.on("backward", () => {
