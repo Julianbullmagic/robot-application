@@ -108,6 +108,7 @@ function createUserItems(socketId) {
 }
 
 function updateUserList(users) {
+  console.log("users",users)
     const activeUserContainer = document.getElementById(
         "active-user-container"
     );
