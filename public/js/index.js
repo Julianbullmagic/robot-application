@@ -7,6 +7,17 @@ const { RTCPeerConnection, RTCSessionDescription } = window;
 
 const peerConnection = new RTCPeerConnection();
 
+let robot=""
+socket.on("robot joining", (socketId) => {
+    robot=socketId.robot
+    console.log(robot,"robot")
+    document.getElementById("connectwithrobot").style.display="block"
+});
+
+document.getElementById("connectwithrobot").onmousedown=function() {
+  socket.emit("connect with robot", "connect with robot");
+  console.log("connect with rboot")
+};
 
 document.getElementById("forward").onmousedown=function() {
   socket.emit("forward", "forward");

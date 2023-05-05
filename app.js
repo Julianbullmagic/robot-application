@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
     socket.on("robot joining", (data) => {
       console.log("robot joining",data)
       robot=data.robot
-      io.emit("robot joining",robot);
+      io.emit("robot joining",{robot:robot});
     });
     socket.on("forward", () => {
       console.log("forward")
