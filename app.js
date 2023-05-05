@@ -94,6 +94,13 @@ io.on("connection", (socket) => {
         });
     });
 
+    socket.on("call-robot", (data) => {
+        socket.emit("call-robot", {
+            offer: data.offer,
+            socket: socket.id,
+        });
+    });
+
     socket.on("make-answer", (data) => {
         socket.to(data.to).emit("answer-made", {
             socket: socket.id,

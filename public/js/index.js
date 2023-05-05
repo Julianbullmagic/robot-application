@@ -73,7 +73,7 @@ document.getElementById("rotateright").onmouseup=function() {
 async function callRobot(socketId) {
     const offer = await peerConnection.createOffer();
     await peerConnection.setLocalDescription(new RTCSessionDescription(offer));
-    socket.emit("call-user", {
+    socket.emit("call-robot", {
         offer,
         to: socketId,
     });
