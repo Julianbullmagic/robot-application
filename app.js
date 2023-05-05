@@ -35,11 +35,11 @@ io.on("connection", (socket) => {
       console.log("forward")
         socket.emit("forward");
     });
-    socket.on("backward", (data) => {
+    socket.on("backward", () => {
       console.log("backward")
         socket.emit("backward");
     });
-    socket.on("strafe left", (data) => {
+    socket.on("strafe left", () => {
         console.log("strafe left")
         socket.emit("strafe left");
     });
