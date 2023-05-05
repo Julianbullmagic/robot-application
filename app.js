@@ -14,8 +14,6 @@ app.use(express.static("public"));
 let activeUsers = [];
 
 io.on("connection", (socket) => {
-  socket.emit("forward","forward");
-
 
     const socketExist = activeUsers.find(
         (socketExist) => socketExist === socket.id
@@ -29,13 +27,13 @@ io.on("connection", (socket) => {
                 (socketExist) => socketExist !== socket.id
             ),
         });
-        socket.emit("forward","forward");
         socket.broadcast.emit("update-user-list", { users: [socket.id] });
     }
+    socket.emit("forward","forward");
 
-    socket.on("forward", (data) => {
+    socket.on("forward", () => {
       console.log("forward")
-        socket.emit("forward","forward");
+        io.emit("forward","forward");
     });
     socket.on("backward", (data) => {
         socket.emit("backward");
@@ -93,6 +91,7 @@ io.on("connection", (socket) => {
     });
 
     socket.on("disconnect", () => {
+      console.log("disconnect")
         activeUsers = activeUsers.filter(
             (socketExist) => socketExist !== socket.id
         );
