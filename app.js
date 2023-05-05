@@ -29,56 +29,56 @@ io.on("connection", (socket) => {
         });
         socket.broadcast.emit("update-user-list", { users: [socket.id] });
     }
-    socket.emit("forward");
+    io.emit("forward");
 
     socket.on("forward", () => {
       console.log("forward")
-        socket.emit("forward");
+        io.emit("forward");
     });
     socket.on("backward", () => {
       console.log("backward")
-        socket.emit("backward");
+        io.emit("backward");
     });
     socket.on("strafe left", () => {
         console.log("strafe left")
-        socket.emit("strafe left");
+        io.emit("strafe left");
     });
     socket.on("strafe right", (data) => {
         console.log("strafe right")
-        socket.emit("strafe right");
+        io.emit("strafe right");
     });
     socket.on("rotate left", (data) => {
         console.log("rotate left")
-        socket.emit("rotate left");
+        io.emit("rotate left");
     });
     socket.on("rotate right", (data) => {
         console.log("rotate right")
-        socket.emit("rotate right");
+        io.emit("rotate right");
     });
 
     socket.on("stop forward", (data) => {
         console.log("stop forward")
-        socket.emit("stop forward");
+        io.emit("stop forward");
     });
     socket.on("stop backward", (data) => {
         console.log("stop backward")
-        socket.emit("stop backward");
+        io.emit("stop backward");
     });
     socket.on("stop strafe left", (data) => {
         console.log("stop strafe left")
-        socket.emit("stop strafe left");
+        io.emit("stop strafe left");
     });
     socket.on("stop strafe right", (data) => {
         console.log("stop strafe right")
-        socket.emit("stop strafe right");
+        io.emit("stop strafe right");
     });
     socket.on("stop rotate left", (data) => {
         console.log("stop rotate left")
-        socket.emit("stop rotate left");
+        io.emit("stop rotate left");
     });
     socket.on("stop rotate right", (data) => {
         console.log("stop rotate right")
-        socket.emit("stop rotate right");
+        io.emit("stop rotate right");
     });
 
     socket.on("call-user", (data) => {
