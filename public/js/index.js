@@ -7,6 +7,11 @@ const { RTCPeerConnection, RTCSessionDescription } = window;
 
 const peerConnection = new RTCPeerConnection();
 
+
+socket.on("forward", () => {
+  console.log("forward incoming from server")
+});
+
 let forwardbutton=document.getElementById("forward").onmousedown=function() {
   socket.emit("forward", "forward");
   console.log("forward")
