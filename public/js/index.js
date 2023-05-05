@@ -15,8 +15,8 @@ socket.on("robot joining", (socketId) => {
 });
 
 document.getElementById("connectwithrobot").onmousedown=function() {
-  socket.emit("connect with robot", "connect with robot");
-  console.log("connect with rboot")
+  callRobot(robot);
+  console.log("connect with robot",robot)
 };
 
 document.getElementById("forward").onmousedown=function() {
@@ -70,7 +70,14 @@ document.getElementById("rotateright").onmouseup=function() {
 };
 
 
-
+async function callRobot(socketId) {
+    const offer = await peerConnection.createOffer();
+    await peerConnection.setLocalDescription(new RTCSessionDescription(offer));
+    socket.emit("call-user", {
+        offer,
+        to: socketId,
+    });
+}
 
 async function callUser(socketId) {
     const offer = await peerConnection.createOffer();

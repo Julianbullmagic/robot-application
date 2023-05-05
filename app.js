@@ -15,6 +15,9 @@ let activeUsers = [];
 let robot=""
 io.on("connection", (socket) => {
   console.log(socket,"socket",robot)
+  if (robot){
+    io.emit("robot joining",{robot:robot});
+  }
     const socketExist = activeUsers.find(
         (socketExist) => socketExist === socket.id
     );
