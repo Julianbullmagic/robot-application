@@ -14,7 +14,7 @@ app.use(express.static("public"));
 let activeUsers = [];
 
 io.on("connection", (socket) => {
-
+  console.log(socket,"socket")
     const socketExist = activeUsers.find(
         (socketExist) => socketExist === socket.id
     );
