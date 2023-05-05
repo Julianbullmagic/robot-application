@@ -12,16 +12,15 @@ const port = process.env.PORT || 3000;
 app.use(express.static("public"));
 
 let activeUsers = [];
-
+let robot=""
 io.on("connection", (socket) => {
-  console.log(socket,"socket")
+  console.log(socket,"socket",robot)
     const socketExist = activeUsers.find(
         (socketExist) => socketExist === socket.id
     );
 
     if (!socketExist) {
         activeUsers.push(socket.id);
-
         socket.emit("update-user-list", {
             users: activeUsers.filter(
                 (socketExist) => socketExist !== socket.id
@@ -29,7 +28,10 @@ io.on("connection", (socket) => {
         });
         socket.broadcast.emit("update-user-list", { users: [socket.id] });
     }
-
+    socket.on("robot joining", (data) => {
+      console.log("robot joining",data)
+      robot=data.robot
+    });
     socket.on("forward", () => {
       console.log("forward")
         io.emit("forward");
