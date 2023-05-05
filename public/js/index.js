@@ -18,37 +18,48 @@ let forwardbutton=document.getElementById("forward").onmousedown=function() {
 };
 let backwardbutton=document.getElementById("backward").onmousedown=function() {
   socket.emit("backward", "backward");
+  console.log("backward")
 };
 let strafeleftbutton=document.getElementById("strafeleft").onmousedown=function() {
   socket.emit("strafe left", "strafe left");
+  console.log("strafe left")
 };
 let straferightbutton=document.getElementById("straferight").onmousedown=function() {
   socket.emit("strafe right", "strafe right");
+  console.log("strafe right")
 };
 let rotateleftbutton=document.getElementById("rotateleft").onmousedown=function() {
   socket.emit("rotate left", "rotate left");
+  console.log("rotate left")
 };
 let rotaterightbutton=document.getElementById("rotateright").onmousedown=function() {
   socket.emit("rotate right", "rotate right");
+  console.log("rotate right")
 };
 
 forwardbutton.onmouseup=function() {
   socket.emit("stop forward", "stop forward");
+  console.log("stop forward")
 };
 backwardbutton.onmouseup=function() {
   socket.emit("stop backward", "stop backward");
+  console.log("stop backward")
 };
 strafeleftbutton.onmouseup=function() {
   socket.emit("stop strafe left", "stop strafe left");
+  console.log("stop strafe left")
 };
 straferightbutton.onmouseup=function() {
   socket.emit("stop strafe right", "stop strafe right");
+  console.log("stop strafe right")
 };
 rotateleftbutton.onomouseup=function() {
   socket.emit("stop rotate left", "stop rotate left");
+  console.log("stop rotate left")
 };
 rotaterightbutton.onmouseup=function() {
   socket.emit("stop rotate right", "stop rotate right");
+  console.log("stop rotate right")
 };
 
 

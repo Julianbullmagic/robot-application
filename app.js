@@ -33,40 +33,51 @@ io.on("connection", (socket) => {
 
     socket.on("forward", () => {
       console.log("forward")
-        io.emit("forward","forward");
+        socket.emit("forward","forward");
     });
     socket.on("backward", (data) => {
+      console.log("backward")
         socket.emit("backward");
     });
-    socket.on("strafeleft", (data) => {
+    socket.on("strafe left", (data) => {
+        console.log("strafe left")
         socket.emit("strafe left");
     });
-    socket.on("straferight", (data) => {
+    socket.on("strafe right", (data) => {
+        console.log("strafe right")
         socket.emit("strafe right");
     });
-    socket.on("rotateleft", (data) => {
+    socket.on("rotate left", (data) => {
+        console.log("rotate left")
         socket.emit("rotate left");
     });
     socket.on("rotate right", (data) => {
+        console.log("rotate right")
         socket.emit("rotate right");
     });
 
     socket.on("stop forward", (data) => {
-        socket.emit("foward");
+        console.log("stop forward")
+        socket.emit("stop forward");
     });
     socket.on("stop backward", (data) => {
-        socket.emit("backward");
+        console.log("stop backward")
+        socket.emit("stop backward");
     });
     socket.on("stop strafe left", (data) => {
-        socket.emit("strafe left");
+        console.log("stop strafe left")
+        socket.emit("stop strafe left");
     });
     socket.on("stop strafe right", (data) => {
-        socket.emit("strafe right");
+        console.log("stop strafe right")
+        socket.emit("stop strafe right");
     });
     socket.on("stop rotate left", (data) => {
+        console.log("stop rotate left")
         socket.emit("rotate left");
     });
     socket.on("stop rotate right", (data) => {
+        console.log("stop rotate right")
         socket.emit("rotate right");
     });
 
