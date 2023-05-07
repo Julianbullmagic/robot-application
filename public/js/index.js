@@ -2,7 +2,7 @@ const socket = io("/");
 
 socket.on("frame", (data) => {
     console.log(data,"data")
-    document.getElementById("robotcam").src=`data:image/jpeg;base64,${image}`
+    document.getElementById("robotcam").src=`data:image/jpeg;base64,${data.frame}`
 });
 
 
