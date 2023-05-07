@@ -14,9 +14,7 @@ app.use(express.static("public"));
 let activeUsers = [];
 let robot=""
 io.on("connection", (socket) => {
-
     socket.on("frame", (data) => {
-        console.log("sending frame")
         io.emit("frame",{frame:data});
     });
     socket.on("forward", () => {
