@@ -2,7 +2,9 @@ const socket = io("/");
 
 socket.on("frame", (data) => {
     console.log(data,"data")
-    document.getElementById("robotcam").src=`data:image/jpeg;base64,${data.frame}`
+    let base64String = btoa(String.fromCharCode.apply(null, new Uint8Array(data.frame)));
+
+    document.getElementById("robotcam").src=`data:image/jpeg;base64,${base64String}`
 });
 
 
