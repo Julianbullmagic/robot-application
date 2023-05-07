@@ -8,18 +8,6 @@
         <script src="/socket.io/socket.io.min.js"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="content-container">
-                <div class="active-users-panel" id="active-user-container">
-                    <h3 class="panel-title">Online Users :</h3>
-                </div>
-                <div class="video-chat-container">
-                    <h2 class="talk-info" id="talking-with-info">
-                        Select online user from left menu
-                    </h2>
-                    <button id="connectwithrobot" style="display:none;">
-                      Connect With Robot
-                    </button>
                     <button id="forward">
                       Forward
                     </button>
@@ -39,23 +27,7 @@
                       Rotate Right
                     </button>
                     <img id="robotcam"></img>
-                    <div class="video-container">
-                        <video
-                            autoplay
-                            class="remote-video"
-                            id="remote-video"
-                        ></video>
-                        <video
-                            autoplay
-                            muted
-                            class="local-video"
-                            id="local-video"
-                        ></video>
 
-                    </div>
-                </div>
-            </div>
-        </div>
         <script src="js/index.js"></script>
     </body>
 </html>

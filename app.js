@@ -15,22 +15,9 @@ let activeUsers = [];
 let robot=""
 io.on("connection", (socket) => {
 
-    const socketExist = activeUsers.find(
-        (socketExist) => socketExist === socket.id
-    );
-
-    if (!socketExist) {
-        activeUsers.push(socket.id);
-        socket.emit("update-user-list", {
-            users: activeUsers.filter(
-                (socketExist) => socketExist !== socket.id
-            ),
-        });
-        socket.broadcast.emit("update-user-list", { users: [socket.id] });
-    }
     socket.on("frame", (data) => {
         console.log("sending frame")
-        io.emit("frame",{frame:frame});
+        io.emit("frame",{frame:data});
     });
     socket.on("forward", () => {
       console.log("forward")
@@ -57,7 +44,6 @@ io.on("connection", (socket) => {
         console.log("rotate right")
         io.emit("rotate right");
     });
-
     socket.on("stop forward", (data) => {
         console.log("stop forward")
         io.emit("stop forward");
@@ -83,16 +69,8 @@ io.on("connection", (socket) => {
         io.emit("stop rotate right");
     });
 
-
     socket.on("disconnect", () => {
       console.log("disconnect")
-        activeUsers = activeUsers.filter(
-            (socketExist) => socketExist !== socket.id
-        );
-
-        socket.broadcast.emit("remove-user", {
-            socketId: socket.id,
-        });
     });
 });
 
