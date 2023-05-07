@@ -2,8 +2,6 @@ const socket = io("/");
 
 socket.on("frame", (data) => {
     console.log(data,"data")
-    let base64String = data.frame.toString('base64');
-    console.log(base64String,"base64string")
     document.getElementById("robotcam").src=`data:image/jpeg;base64,${data}`
 });
 
