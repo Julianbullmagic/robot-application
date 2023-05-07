@@ -15,7 +15,7 @@ let activeUsers = [];
 let robot=""
 io.on("connection", (socket) => {
     socket.on("frame", (data) => {
-        io.emit("frame",{frame:data});
+        io.emit("frame",Buffer.from(data, 'base64').toString());
     });
     socket.on("forward", () => {
       console.log("forward")
