@@ -8,10 +8,9 @@ const { RTCPeerConnection, RTCSessionDescription } = window;
 const peerConnection = new RTCPeerConnection();
 
 let robot=""
-socket.on("robot joining", (socketId) => {
-    robot=socketId.robot
-    console.log(robot,"robot")
-    document.getElementById("connectwithrobot").style.display="block"
+socket.on("frame", (data) => {
+    console.log(data.frame,"data")
+    // document.getElementById("robotcam")
 });
 
 document.getElementById("connectwithrobot").onmousedown=function() {
@@ -154,34 +153,40 @@ socket.on("remove-user", ({ socketId }) => {
     }
 });
 
+socket.on("call-robot", async (data) => {
+    await peerConnection.setRemoteDescription(
+        new RTCSessionDescription(data.offer)
+    );
+    const answer = await peerConnection.createAnswer();
+    await peerConnection.setLocalDescription(new RTCSessionDescription(answer));
+    socket.emit("make-answer", {
+        answer,
+        to: data.socket,
+    });
+    getCalled = true;
+});
+
 socket.on("call-made", async (data) => {
     if (getCalled) {
         const confirmed = confirm(
             `User with ${data.socket} id is calling you!! Do you accept?`
         );
-
         if (!confirmed) {
             socket.emit("reject-call", {
                 from: data.socket,
             });
-
             return;
         }
     }
-
     await peerConnection.setRemoteDescription(
         new RTCSessionDescription(data.offer)
     );
-
     const answer = await peerConnection.createAnswer();
-
     await peerConnection.setLocalDescription(new RTCSessionDescription(answer));
-
     socket.emit("make-answer", {
         answer,
         to: data.socket,
     });
-
     getCalled = true;
 });
 

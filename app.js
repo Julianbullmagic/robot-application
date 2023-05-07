@@ -14,10 +14,7 @@ app.use(express.static("public"));
 let activeUsers = [];
 let robot=""
 io.on("connection", (socket) => {
-  console.log(socket,"socket",robot)
-  if (robot){
-    io.emit("robot joining",{robot:robot});
-  }
+
     const socketExist = activeUsers.find(
         (socketExist) => socketExist === socket.id
     );
@@ -31,10 +28,9 @@ io.on("connection", (socket) => {
         });
         socket.broadcast.emit("update-user-list", { users: [socket.id] });
     }
-    socket.on("robot joining", (data) => {
-      console.log("robot joining",data)
-      robot=data.robot
-      io.emit("robot joining",{robot:robot});
+    socket.on("frame", (data) => {
+        console.log("sending frame")
+        io.emit("frame",{frame:frame});
     });
     socket.on("forward", () => {
       console.log("forward")
@@ -87,43 +83,6 @@ io.on("connection", (socket) => {
         io.emit("stop rotate right");
     });
 
-    socket.on("call-user", (data) => {
-        socket.to(data.to).emit("call-made", {
-            offer: data.offer,
-            socket: socket.id,
-        });
-    });
-
-    socket.on("call-robot", (data) => {
-      console.log({
-          offer: data.offer,
-          socket: socket.id,
-      },"receiving call from robot")
-        io.emit("call-robot", {
-            offer: data.offer,
-            socket: socket.id,
-        });
-    });
-
-    socket.on("make-answer-with-robot", (data) => {
-        console.log("making answer with robot",data,data.answer)
-        socket.emit("answer-made", {
-            answer: data.answer,
-        });
-    });
-
-    socket.on("make-answer", (data) => {
-        socket.to(data.to).emit("answer-made", {
-            socket: socket.id,
-            answer: data.answer,
-        });
-    });
-
-    socket.on("reject-call", (data) => {
-        socket.to(data.from).emit("call-rejected", {
-            socket: socket.id,
-        });
-    });
 
     socket.on("disconnect", () => {
       console.log("disconnect")
