@@ -14,7 +14,7 @@
 #robotcam{
 transform:translate(-1%,-1%);
 margin:1.5vh;
-width:70vw;
+width:77vw;
 height:97vh;
 position:fixed;
 z-index:-3;
@@ -23,7 +23,7 @@ z-index:-3;
 #robotcanvas{
 transform:translate(-1%,-1%);
 margin:1.5vh;
-width:70vw;
+width:77vw;
 height:97vh;
 position:fixed;
 z-index:-2;
