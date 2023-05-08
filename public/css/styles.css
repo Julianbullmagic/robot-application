@@ -16,6 +16,14 @@ margin:1.5vh;
 width:70vh;
 height:97vh;
 position:fixed;
+z-index:-3;
+}
+
+#robotcanvas{
+margin:1.5vh;
+width:70vh;
+height:97vh;
+position:fixed;
 z-index:-2;
 }
 
