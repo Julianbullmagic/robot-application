@@ -3,8 +3,7 @@ const socket = io("/");
 
 var canvas = document.getElementById('robotcam');
 var ctx = canvas.getContext('2d');
-var tv = document.getElementById('tv');
-var tvctx = canvas.getContext('2d');
+
 socket.on("frame", (data) => {
 console.log(data,"data")
 let myImage = new Image();
