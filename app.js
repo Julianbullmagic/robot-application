@@ -42,9 +42,43 @@ io.on("connection", (socket) => {
         console.log("rotate right")
         io.emit("rotate right");
     });
+    socket.on("diagonal left", () => {
+        console.log("diagonal left")
+        io.emit("diagonal left");
+    });
+    socket.on("diagonal right", (data) => {
+        console.log("diagonal right")
+        io.emit("diagonal right");
+    });
+    socket.on("diagonal back left", (data) => {
+        console.log("diagonal back left")
+        io.emit("diagonal back left");
+    });
+    socket.on("diagonal back right", (data) => {
+        console.log("diagonal back right")
+        io.emit("diagonal back right");
+    });
+
+
+    socket.on("stop diagonal left", () => {
+        console.log("stop diagonal left")
+        io.emit("stop diagonal left");
+    });
+    socket.on("stop diagonal right", (data) => {
+        console.log("stop diagonal right")
+        io.emit("stop diagonal right");
+    });
+    socket.on("stop diagonal back left", (data) => {
+        console.log("stop diagonal back left")
+        io.emit("stop diagonal back left");
+    });
+    socket.on("stop diagonal back right", (data) => {
+        console.log("stop diagonal back right")
+        io.emit("stop diagonal back right");
+    });
     socket.on("stop forward", (data) => {
-        console.log("stop forward")
-        io.emit("stop forward");
+        console.log("stop stop forward")
+        io.emit("stop stop forward");
     });
     socket.on("stop backward", (data) => {
         console.log("stop backward")

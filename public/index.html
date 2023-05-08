@@ -1,33 +1,36 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Video Chat Application</title>
-        <link rel="stylesheet" href="css/styles.css" />
-        <script src="/socket.io/socket.io.min.js"></script>
-    </head>
-    <body>
-                    <button id="forward">
-                      Forward
-                    </button>
-                    <button id="backward">
-                      Backward
-                    </button>
-                    <button id="strafeleft">
-                      Strafe Left
-                    </button>
-                    <button id="straferight">
-                      Strafe Right
-                    </button>
-                    <button id="rotateleft">
-                      Rotate Left
-                    </button>
-                    <button id="rotateright">
-                      Rotate Right
-                    </button>
-                    <img id="robotcam"></img>
-
-        <script src="js/index.js"></script>
-    </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Video Chat Application</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="/socket.io/socket.io.min.js"></script>
+</head>
+<body>
+  <img id="tv" src="tvscreen.png"></img>
+  <canvas id="robotcam"></canvas>
+  <div id="controldiv">
+  <div id="left"><img src="arrowup.png"></div>
+  <div id="right"><img src="arrowup.png"></div>
+  <div id="centrecircle">
+    <div id="centrecircletop">
+      <div id="topleft"><img src="arrowup.png"></img></div>
+      <div id="topmiddle"><img src="arrowup.png"></img></div>
+      <div id="topright"><img src="arrowup.png"></img></div>
+    </div>
+    <div id="centrecirclemiddle">
+      <div id="middleleft"><img src="arrowleft.png"></img></div>
+      <div id="middlemiddle"></div>
+      <div id="middleright"><img src="arrowright.png"></img></div>
+    </div>
+    <div id="centrecirclebottom">
+      <div id="bottomleft"><img src="arrowleft.png"></img></div>
+      <div id="bottommiddle"><img src="arrowdown.png"></img></div>
+      <div id="bottomright"><img src="arrowright.png"></img></div>
+    </div>
+  </div>
+</div>
+  <script src="js/index.js"></script>
+</body>
 </html>
