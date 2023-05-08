@@ -1,13 +1,14 @@
 const socket = io("/");
 
 socket.on("frame", (data) => {
-let canvas = document.getElementById('robotcam');
-let ctx = canvas.getContext('2d');
+document.getElementById('robotcam').src = `data:image/jpeg;base64,${data}`
 console.log(data,"data")
-let myImage = new Image();
-myImage.src = `data:image/jpeg;base64,${data}`
+let canvas=document.getElementById('robotcanvas')
+let ctx = canvas.getContext('2d');
 console.log(ctx,"ctx")
-ctx.drawImage(myImage, 0, 0);
+ctx.beginPath();
+ctx.rect(20, 20, 150, 100);
+ctx.stroke();
 });
 
 
