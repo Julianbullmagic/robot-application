@@ -12,16 +12,18 @@
 }
 
 #robotcam{
+transform:translate(-1%,-1%);
 margin:1.5vh;
-width:70vh;
+width:70vw;
 height:97vh;
 position:fixed;
 z-index:-3;
 }
 
 #robotcanvas{
+transform:translate(-1%,-1%);
 margin:1.5vh;
-width:70vh;
+width:70vw;
 height:97vh;
 position:fixed;
 z-index:-2;
