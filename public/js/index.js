@@ -1,19 +1,17 @@
 const socket = io("/");
 let model
-// (async () => {
-// await model=cocoSsd.load()
-// })()
-
+(async () => {
+await model=cocoSsd.load()
+})()
+let detectingObjects=false
 
 socket.on("frame", (data) => {
 let img=document.getElementById('robotcam')
 img.src = `data:image/jpeg;base64,${data}`
 console.log(data,"data")
-if(detectingObjects){
   model.detect(img).then(predictions => {
     console.log('Predictions: ', predictions);
   });
-}
 // let canvas=document.getElementById('robotcanvas')
 // let ctx = canvas.getContext('2d');
 // console.log(ctx,"ctx")
@@ -21,6 +19,14 @@ if(detectingObjects){
 // ctx.rect(20, 20, 150, 100);
 // ctx.stroke();
 });
+
+
+
+
+document.getElementById("detectObjects").onmousedown = function() {
+  detectingObjects=!detectingObjects
+  console.log("detecting objects now")
+}
 
 document.getElementById("myRange").oninput = function() {
   document.getElementById("demo").innerHTML = this.value;
