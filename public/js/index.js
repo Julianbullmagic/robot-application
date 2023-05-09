@@ -6,18 +6,26 @@ socket.on("frame", (data) => {
 let img=document.getElementById('robotcam')
 img.src = `data:image/jpeg;base64,${data}`
 detect(img)
-// let canvas=document.getElementById('robotcanvas')
-// let ctx = canvas.getContext('2d');
-// console.log(ctx,"ctx")
-// ctx.beginPath();
-// ctx.rect(20, 20, 150, 100);
-// ctx.stroke();
 });
 
 async function detect(image){
   const model = await cocoSsd.load();
   const predictions = await model.detect(image);
   console.log('Predictions: ',predictions);
+  if (predictions){
+    let canvas=document.getElementById('robotcanvas')
+    let ctx = canvas.getContext('2d');
+    ctx.font = "20px Georgia";
+    ctx.strokeStyle = "blue";
+    for (let pred of predictions){
+      if (pred.score>0.5){
+        ctx.beginPath();
+        ctx.fillText(pred.class, pred.bbox[0]+10, pred.bbox[1]+10);
+        ctx.rect(pred.bbox[0], pred.bbox[1], pred.bbox[2], pred.bbox[3]);
+        ctx.stroke();
+      }
+    }
+  }
 }
 
 
