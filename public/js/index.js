@@ -17,10 +17,12 @@ async function detect(image){
     let ctx = canvas.getContext('2d');
     ctx.font = "20px Georgia";
     ctx.strokeStyle = "blue";
+    ctx.fillStyle="blue"
     for (let pred of predictions){
       if (pred.score>0.5){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.beginPath();
-        ctx.fillText(pred.class, pred.bbox[0]+10, pred.bbox[1]+10);
+        ctx.fillText(pred.class, pred.bbox[0]+10, pred.bbox[1]+20);
         ctx.rect(pred.bbox[0], pred.bbox[1], pred.bbox[2], pred.bbox[3]);
         ctx.stroke();
       }
