@@ -5,11 +5,7 @@ let detectingObjects=false
 socket.on("frame", (data) => {
 let img=document.getElementById('robotcam')
 img.src = `data:image/jpeg;base64,${data}`
-  (async () => {
-    const model = await cocoSsd.load();
-    const predictions = await model.detect(img);  
-    console.log('Predictions: ');
-  })()
+detect(img)
 // let canvas=document.getElementById('robotcanvas')
 // let ctx = canvas.getContext('2d');
 // console.log(ctx,"ctx")
@@ -18,7 +14,11 @@ img.src = `data:image/jpeg;base64,${data}`
 // ctx.stroke();
 });
 
-
+async function detect(image){
+  const model = await cocoSsd.load();
+  const predictions = await model.detect(image);
+  console.log('Predictions: ',predictions);
+}
 
 
 document.getElementById("detectObjects").onmousedown = function() {
