@@ -8,7 +8,6 @@ let detectingObjects=false
 socket.on("frame", (data) => {
 let img=document.getElementById('robotcam')
 img.src = `data:image/jpeg;base64,${data}`
-console.log(data,"data")
   model.detect(img).then(predictions => {
     console.log('Predictions: ', predictions);
   });
