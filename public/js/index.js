@@ -12,7 +12,7 @@ async function detect(image){
   const model = await cocoSsd.load();
   const predictions = await model.detect(image);
   console.log('Predictions: ',predictions);
-  if (predictions){
+  if (predictions&&detectingObjects){
     let canvas=document.getElementById('robotcanvas')
     let ctx = canvas.getContext('2d');
     ctx.font = "20px Georgia";
