@@ -17,9 +17,9 @@ io.on("connection", (socket) => {
     socket.on("frame", (data) => {
         io.emit("frame",Buffer.from(data, 'base64').toString());
     });
-    socket.on("changing speed", (speed) => {
+    socket.on("change speed", (speed) => {
       console.log("changing speed",console.log(speed))
-        io.emit("changing speed",speed);
+        io.emit("change speed",speed);
     });
     socket.on("forward", () => {
       console.log("forward")
