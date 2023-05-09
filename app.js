@@ -74,8 +74,8 @@ io.on("connection", (socket) => {
         io.emit("stop diagonal back right");
     });
     socket.on("stop forward", (data) => {
-        console.log("stop stop forward")
-        io.emit("stop stop forward");
+        console.log("stop forward")
+        io.emit("stop forward");
     });
     socket.on("stop backward", (data) => {
         console.log("stop backward")
