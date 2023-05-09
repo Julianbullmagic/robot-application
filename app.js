@@ -57,8 +57,6 @@ io.on("connection", (socket) => {
         console.log("diagonal back right")
         io.emit("diagonal back right");
     });
-
-
     socket.on("stop diagonal left", () => {
         console.log("stop diagonal left")
         io.emit("stop diagonal left");
