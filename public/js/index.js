@@ -1,16 +1,15 @@
 const socket = io("/");
-let model
-(async () => {
-model=await cocoSsd.load()
-})()
+
 let detectingObjects=false
 
 socket.on("frame", (data) => {
 let img=document.getElementById('robotcam')
 img.src = `data:image/jpeg;base64,${data}`
-  model.detect(img).then(predictions => {
-    console.log('Predictions: ', predictions);
-  });
+  (async () => {
+    const model = await cocoSsd.load();
+    const predictions = await model.detect(img);  
+    console.log('Predictions: ');
+  })()
 // let canvas=document.getElementById('robotcanvas')
 // let ctx = canvas.getContext('2d');
 // console.log(ctx,"ctx")
