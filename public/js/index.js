@@ -1,7 +1,7 @@
 const socket = io("/");
 let model
 (async () => {
-await model=cocoSsd.load()
+model=await cocoSsd.load()
 })()
 let detectingObjects=false
 
