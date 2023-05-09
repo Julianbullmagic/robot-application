@@ -62,7 +62,7 @@ border:solid;
 #centrecircle{
   position:fixed;
   border-radius:50%;
-  background-color:#9B8D8F ;
+  background-color:#9B8D8F;
   z-index:1;
   margin-top:5vh;
   width:30vh;
@@ -205,23 +205,23 @@ max-height: 50%;
   transform: rotate(45deg) translateX(-50%);
 }
 
-#topleft:hover{background-color:#b7c9e2;}
-#topmiddle:hover{background-color:#b7c9e2;}
-#topright:hover{background-color:#b7c9e2;}
-#bottomleft:hover{background-color:#b7c9e2;}
-#bottommiddle:hover{background-color:#b7c9e2;}
-#bottomright:hover{background-color:#b7c9e2;}
-#middleleft:hover{background-color:#b7c9e2;}
-#middleright:hover{background-color:#b7c9e2;}
+#topleft:hover{background-color:#685F60;}
+#topmiddle:hover{background-color:#685F60;}
+#topright:hover{background-color:#685F60;}
+#bottomleft:hover{background-color:#685F60;}
+#bottommiddle:hover{background-color:#685F60;}
+#bottomright:hover{background-color:#685F60;}
+#middleleft:hover{background-color:#685F60;}
+#middleright:hover{background-color:#685F60;}
 
-#middleleft:active{background-color:#6699cc;}
-#middleright:active{background-color:#6699cc;}
-#topleft:active{background-color:#6699cc;}
-#topmiddle:active{background-color:#6699cc;}
-#topright:active{background-color:#6699cc;}
-#bottomleft:active{background-color:#6699cc;}
-#bottommiddle:active{background-color:#6699cc;}
-#bottomright:active{background-color:#6699cc;}
+#middleleft:active{background-color:#433835;}
+#middleright:active{background-color:#433835;}
+#topleft:active{background-color:#433835;}
+#topmiddle:active{background-color:#433835;}
+#topright:active{background-color:#433835;}
+#bottomleft:active{background-color:#433835;}
+#bottommiddle:active{background-color:#433835;}
+#bottomright:active{background-color:#433835;}
 
 #right {
   border-bottom-right-radius:var(--doublesize);
@@ -243,4 +243,25 @@ background-color:#6699cc;
 }
 #left:active{
 background-color:#6699cc;
+}
+.slidecontainer {
+  width: 20vw;
+  padding-top:37.5vh;
+  margin-left:77vw;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
 }

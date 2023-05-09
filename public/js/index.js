@@ -1,8 +1,19 @@
 const socket = io("/");
+let model
+// (async () => {
+// await model=cocoSsd.load()
+// })()
+
 
 socket.on("frame", (data) => {
-document.getElementById('robotcam').src = `data:image/jpeg;base64,${data}`
+let img=document.getElementById('robotcam')
+img.src = `data:image/jpeg;base64,${data}`
 console.log(data,"data")
+if(detectingObjects){
+  model.detect(img).then(predictions => {
+    console.log('Predictions: ', predictions);
+  });
+}
 // let canvas=document.getElementById('robotcanvas')
 // let ctx = canvas.getContext('2d');
 // console.log(ctx,"ctx")
@@ -11,6 +22,11 @@ console.log(data,"data")
 // ctx.stroke();
 });
 
+document.getElementById("myRange").oninput = function() {
+  document.getElementById("demo").innerHTML = this.value;
+  socket.emit("change speed", this.value);
+  console.log("changingspeed",this.value)
+}
 
 document.getElementById("topmiddle").onmousedown=function() {
   socket.emit("forward", "forward");
