@@ -21,7 +21,7 @@ async function detect(image){
       if (pred.score>0.5){
         console.log(pred,"pred")
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeText(pred.class, pred.bbox[0]+10, pred.bbox[1]+20);
+        ctx.fillText(pred.class, pred.bbox[0]+10, pred.bbox[1]+20);
         ctx.rect(pred.bbox[0], pred.bbox[1], pred.bbox[2], pred.bbox[3]);
       }
     }
